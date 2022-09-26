@@ -1,58 +1,19 @@
 import {
-  title,
-  author,
-  addButton,
-  message,
-  bookList,
+  addButton, list, addBook, contact, listPage,
+  addPage, contactPage, title, author, message,
 } from './modules/selectors.js';
+import {
+  refreshList, newbook,
+} from './modules/functions.js';
 
-const Store = (books) => {
-  localStorage.setItem('books', JSON.stringify(books));
-};
-
-const booksArray = JSON.parse(localStorage.getItem('books')) || [];
-
-class Book {
-  constructor(title, author) {
-    this.title = title;
-    this.author = author;
-  }
-
-  addBook() {
-    booksArray.push(this);
-  }
-
-  static removeBooks(index) {
-    booksArray.splice(index, 1);
-  }
-}
-/* eslint-disable */
-const removeUI = (index) => {
-  Book.removeBooks(index);
-  refreshList();
-};
-
-const refreshList = () => {
-  Store(booksArray);
-  bookList.innerHTML = booksArray
-    .map((data, index) => `<li><div class="book-info"><p>"${data.title}"</p>by<p>${data.author}</p></div>
-      <button class="removeButton">Remove</button></li>`)
-    .join('');
-  const removeBtn = document.querySelectorAll('.removeButton');
-  removeBtn.forEach((button, index) => button.addEventListener('click', () => {
-    removeUI(index);
-  }));
-};
-
+// load screen
 refreshList();
 
+// Add book to list
 addButton.addEventListener('click', (e) => {
   e.preventDefault();
-  if (title.value === '' && author.value === '') {
-    return false;
-  }
-  const book = new Book(title.value, author.value);
-  booksArray.push(book);
+  if (title.value === '' && author.value === '') return false;
+  newbook(title.value, author.value);
   refreshList();
   title.value = '';
   author.value = '';
@@ -63,3 +24,30 @@ addButton.addEventListener('click', (e) => {
   return true;
 });
 
+// navigation Events for nav-bar
+list.addEventListener('click', () => {
+  listPage.style.display = 'flex';
+  list.classList.add('active');
+  addBook.classList.remove('active');
+  contact.classList.remove('active');
+  addPage.style.display = 'none';
+  contactPage.style.display = 'none';
+});
+
+addBook.addEventListener('click', () => {
+  addPage.style.display = 'flex';
+  addBook.classList.add('active');
+  list.classList.remove('active');
+  contact.classList.remove('active');
+  contactPage.style.display = 'none';
+  listPage.style.display = 'none';
+});
+
+contact.addEventListener('click', () => {
+  contactPage.style.display = 'flex';
+  contact.classList.add('active');
+  list.classList.remove('active');
+  addBook.classList.remove('active');
+  listPage.style.display = 'none';
+  addPage.style.display = 'none';
+});
