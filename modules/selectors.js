@@ -11,3 +11,5 @@ export const contact = document.querySelector('.contact-page');
 export const listPage = document.querySelector('#listPage');
 export const addPage = document.querySelector('#addPage');
 export const contactPage = document.querySelector('#contactPage');
+// date & time variables selectors
+export const date = document.querySelector('#date');

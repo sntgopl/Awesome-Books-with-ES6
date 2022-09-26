@@ -36,7 +36,7 @@ const refreshList = () => {
   Store(booksArray);
   bookList.innerHTML = booksArray
     .map((data, index) => `<li><div class="book-info"><p>"${data.title}"</p>by<p>${data.author}</p></div>
-      <button onclick=removeUI(${index}) class="removeButton">Remove</button></li>`)
+      <button class="removeButton">Remove</button></li>`)
     .join('');
   const removeBtn = document.querySelectorAll('.removeButton');
   removeBtn.forEach((button, index) => button.addEventListener('click', () => {
@@ -62,3 +62,4 @@ addButton.addEventListener('click', (e) => {
   }, 3000);
   return true;
 });
+
