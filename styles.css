@@ -21,11 +21,6 @@ nav {
   z-index: 1;
 }
 
-#logo {
-  height: 10rem;
-
-}
-
 nav ul {
   display: flex;
   list-style: none;
@@ -90,12 +85,12 @@ section ul {
   background-color: rgba(255, 201, 134, 0.266);
 }
 
-.book-list li:nth-child(odd):hover {
-  background-color: rgba(255, 201, 134, 0.5);
-}
-
 .book-list li:nth-child(even) {
   background-color: rgba(190, 255, 155, 0.266);
+}
+
+.book-list li:nth-child(odd):hover {
+  background-color: rgba(255, 201, 134, 0.5);
 }
 
 .book-list li:nth-child(even):hover {
@@ -131,7 +126,7 @@ section ul {
   display: none;
   padding-top: 5rem;
   color: #c9d1d9;
-  text-shadow: 1px black;
+  text-shadow: 1px 1px 2px black;
   z-index: 3;
 }
 
