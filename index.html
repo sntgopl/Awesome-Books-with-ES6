@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Awesome Books</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <nav>
+    <h1>Awesome Books</h1>
+    <ul>
+      <li class="list-book-page">List</li>
+      <li class="add-book-page">Add New</li>
+      <li class="contact-page">Contact</li>
+    </ul>
+  </nav>
+  <section>
+    <p id="date">hello here is the date</p>
+    <div id="listPage">
+    <h2>All awesome Books</h2>
+    <div id="container">
+      <ul class="book-list"> 
+      </ul>
+    </div>
+    </div>
+    <div id="addPage">
+    <h2>Add a new book</h2>
+    <form class="add-book" action="#">
+      <input class="input" id="title" type="text" placeholder="Title" required><br>
+      <input class="input" id="author" type="text" placeholder="Author" required><br>
+      <button id="addButton" type="submit">Add</button>
+      <p class=message>Your book has been succesfully added to the list.</p>
+    </form>
+    </div>
+    <div id="contactPage">
+      <h2>Contact information</h2>
+      <p>Do you have any questions or you just want to say "Hello"?<br>You can reach out to us!</p>
+      <ul>
+        <li>Our e-mail: mail@mail.com</li>
+        <li>Our phone: +541131200928</li>
+        <li>Out address: Streetname 22, 83560 City, Country</li>
+      </ul>
+    </div>
+  </section>
+  <footer>
+    <p>Copyright &copy; <span class="year"></span> Santiago Pons and Miliyon Ayalew</p>
+  </footer>
+  <script src="index.js" type="module"></script>
+  <script src="modules/navigation.js" type="module"></script>
+</body>
+</html>
